@@ -8,5 +8,12 @@ module.exports = {
 
   var div = document.getElementsByTagName('div')
 
-  div.addEventListener
+  var handleEvent = function (event) {
+    
+
+  }
+
+  div.addEventListener('click', function(event){
+    event.target.call(handleEvent)
+  })
 }
