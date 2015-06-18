@@ -3,6 +3,7 @@
 }
 
 body{
+  font-family: sans-serif;
   width: 900px;
   height: 900px;
   background-color: brown;
@@ -17,6 +18,9 @@ section{
 }
 
 div{
+  padding-top: 30px;
+  font-size: 90px;
+  color: brown;
   text-align: center;
   display: block;
   height: 30%;
