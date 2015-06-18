@@ -1,19 +1,27 @@
-module.exports = {
+var div = document.getElementsByTagName('div')
+var board = document.getElementById('board')
 
-  var win = {
-  }
+var win = {
+}
 
-  var o = {}
-  var x = {}
+var o = {}
+var x = {}
 
-  var div = document.getElementsByTagName('div')
+console.log(div)
+var handleEvent = function (event) {
+  o[event.target.id] = 1
+  event.target.class = "one"
+}
 
-  var handleEvent = function (event) {
-    
-
-  }
-
-  div.addEventListener('click', function(event){
+div.forEach(function (element) {
+  element.addEventListener('click', function(event){
+    console.log("box was clicked")
+    console.log(event.target.id)
     event.target.call(handleEvent)
   })
+})
+
+
+module.exports = {
+
 }
