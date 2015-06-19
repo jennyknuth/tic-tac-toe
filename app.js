@@ -12,22 +12,22 @@ var Game = function () {
   this.counter = 0
 }
 
-var game = new Game
+var game = new Game()
 
 var clearBoard = function () {
-  for (i = 0; i < div.length; i++){
+  for (var i = 0; i < div.length; i++) {
     div[i].innerHTML = ''
   }
-  game = new Game
+  game = new Game()
 }
 
 var checkWinner = function (player) {
   win.forEach(function (element) {
-    if (game.obj[element[0]] === player && game.obj[element[1]] === player && game.obj[element[2]] === player){
-      alert(player + ' wins!')
+    if (game.obj[element[0]] === player && game.obj[element[1]] === player && game.obj[element[2]] === player) {
+      this.alert(player + ' wins!')
       board.addEventListener('click', clearBoard())
     } else if (game.counter === 9) {
-      alert('a draw!')
+      this.alert('a draw!')
       board.addEventListener('click', clearBoard())
     }
   })
@@ -44,6 +44,6 @@ var handleEvent = function (event) {
   }
 }
 
-for (i = 0; i < div.length; i++){
+for (var i = 0; i < div.length; i++) {
   div[i].addEventListener('click', handleEvent)
 }
