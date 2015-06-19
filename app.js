@@ -4,40 +4,45 @@ var board = document.getElementById('board')
 
 var win = [['a1', 'a2', 'a3'], ['b1', 'b2', 'b3'], ['c1', 'c2', 'c3'], ['a1', 'b1', 'c1'], ['a2', 'b2', 'c2'], ['a3', 'b3', 'c3'], ['a1', 'b2', 'c3'], ['a3', 'b2', 'c1']]
 
-var o = {}
-var x = {}
-var player = 'O'
+var Game = function () {
+  this.obj = {}
+  // this.objX = {}
+  this.player = 'O'
+  this.counter = 0
+}
 
-console.log(div)
+var game = new Game
+
+var clearBoard = function () {
+  for (i = 0; i < div.length; i++){
+    div[i].innerHTML = ''
+  }
+  game = new Game
+}
 
 var checkWinner = function (player) {
   win.forEach(function (element) {
-    for (key in o === element) {
-      console.log(element, 'o wins?')
-
+    if (game.obj[element[0]] === player && game.obj[element[1]] === player && game.obj[element[2]] === player){
+      alert(player + ' wins!')
+      board.addEventListener('click', clearBoard())
+    } else if (game.counter === 9) {
+      alert('a tie!')
+      board.addEventListener('click', clearBoard())
     }
   })
 }
 
 var handleEvent = function (event) {
-  if (player === 'O' && event.target.innerHTML === '') {
-    o[event.target.id] = 'O'
-    event.target.innerHTML = 'O'
-    console.log(o)
-    player = 'X'
+  var player = game.player
+  game.counter++
+  if (event.target.innerHTML === '') {
+    game.obj[event.target.id] = player
+    event.target.innerHTML = player
     checkWinner(player)
-  } else if (player === 'X' && event.target.innerHTML === '') {
-    x[event.target.id] = 'X'
-    event.target.innerHTML = 'X'
-    console.log(x)
-    player = 'O'
-    checkWinner(player)
+    game.player = player === 'O' ? 'X' : 'O' // switch players
   }
 }
 
-Array.prototype.forEach.call(div, function (element) {
-  element.addEventListener('click', function (event) {
-    console.log(event.target)
-    handleEvent(event)
-  })
-})
+for (i = 0; i < div.length; i++){
+  div[i].addEventListener('click', handleEvent)
+}
