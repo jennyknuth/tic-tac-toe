@@ -4,7 +4,7 @@
 
 body{
   font-family: sans-serif;
-  width: 900px;
+  max-width: 900px;
   height: 900px;
   background-color: brown;
 }
@@ -14,7 +14,10 @@ section{
   display: block;
   width: 60%;
   height: 60%;
-  margin: 75px auto;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 div{
@@ -23,8 +26,8 @@ div{
   color: brown;
   text-align: center;
   display: block;
-  height: 30%;
-  width: 30%;
+  height: 33%;
+  width: 33%;
   border: 5px solid brown;
   float: left;
   background-color: white;
