@@ -44,6 +44,4 @@ var handleEvent = function (event) {
   }
 }
 
-for (var i = 0; i < div.length; i++) {
-  div[i].addEventListener('click', handleEvent)
-}
+board.addEventListener('click', handleEvent)
